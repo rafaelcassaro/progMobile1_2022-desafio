@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2255" />
+        <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/drawable/dsfdgsdfg.xml" value="0.3675" />
+        <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2255" />
+        <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/layout/activity_detalhes_pedidos.xml" value="0.25" />
+        <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/layout/activity_lista_pedidos.xml" value="0.33" />
+        <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/layout/activity_novo_pedido.xml" value="0.25" />
+        <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/layout/bebida_layout.xml" value="0.5" />
+        <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/layout/cardapio_layout.xml" value="0.67" />
+        <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/layout/item_layout.xml" value="0.36666666666666664" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
