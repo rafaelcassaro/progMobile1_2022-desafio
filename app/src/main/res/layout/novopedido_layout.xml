@@ -9,8 +9,8 @@
 
     <ImageButton
         android:id="@+id/add_item_bt"
-        android:layout_width="54dp"
-        android:layout_height="41dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:layout_marginEnd="25dp"
@@ -19,7 +19,7 @@
     <TextView
         android:id="@+id/qnt_bebida_tv"
         android:layout_width="37dp"
-        android:layout_height="41dp"
+        android:layout_height="54dp"
         android:layout_centerVertical="true"
         android:layout_marginEnd="0dp"
         android:layout_toStartOf="@+id/add_item_bt"
@@ -30,8 +30,8 @@
 
     <ImageButton
         android:id="@+id/remove_item_bt"
-        android:layout_width="54dp"
-        android:layout_height="41dp"
+        android:layout_width="wrap_content"
+        android:layout_height="54dp"
         android:layout_centerVertical="true"
         android:layout_marginEnd="0dp"
         android:layout_toStartOf="@+id/qnt_bebida_tv"
@@ -40,15 +40,23 @@
 
     <TextView
         android:id="@+id/bb_tv"
-        android:layout_width="match_parent"
-        android:layout_height="41dp"
+        android:layout_width="220dp"
+        android:layout_height="31dp"
 
         android:layout_alignStart="@id/detalhes_tv"
-        android:layout_centerVertical="true"
         android:layout_marginEnd="0dp"
         android:layout_toStartOf="@+id/remove_item_bt"
         android:text="TextView"
         android:textSize="17sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/detalhes_tv"
+        android:layout_width="221dp"
+        android:layout_height="41dp"
+        android:layout_below="@+id/bb_tv"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_toStartOf="@+id/remove_item_bt"
+        android:text="TextView" />
 </RelativeLayout>

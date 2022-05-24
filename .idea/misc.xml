@@ -5,14 +5,17 @@
       <map>
         <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2255" />
         <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/drawable/dsfdgsdfg.xml" value="0.3675" />
+        <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.2185" />
         <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2255" />
-        <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/layout/activity_detalhes_pedidos.xml" value="0.25" />
+        <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/layout/activity_detalhes_pedidos.xml" value="0.33" />
         <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/layout/activity_lista_pedidos.xml" value="0.33" />
         <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/layout/activity_novo_pedido.xml" value="0.25" />
+        <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/layout/activity_novo_pedido.xml" value="0.33" />
         <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/layout/bebida_layout.xml" value="0.5" />
-        <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/layout/cardapio_layout.xml" value="0.67" />
+        <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/layout/cardapio_layout.xml" value="0.5" />
         <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/layout/item_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/layout/novoPedido_layout.xml" value="0.5" />
+        <entry key="..\:/Users/rafael/AndroidStudioProjects/pi/app/src/main/res/layout/novopedido_layout.xml" value="0.31302083333333336" />
       </map>
     </option>
   </component>

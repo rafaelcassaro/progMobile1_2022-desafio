@@ -7,10 +7,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pi.R;
-import com.example.pi.adapter.BebidaAdapter;
+import com.example.pi.adapter.NovaBebidaAdapter;
 
 public class BebidaViewHolder  extends RecyclerView.ViewHolder implements View.OnClickListener {
-    BebidaAdapter.OnItemClickListener listener;
+    NovaBebidaAdapter.OnItemClickListener listener;
     public TextView bebida;
 
 

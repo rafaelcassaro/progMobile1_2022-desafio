@@ -7,10 +7,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pi.R;
-import com.example.pi.adapter.PedidoAdapter;
+import com.example.pi.adapter.ListaPedidosAdapter;
 
 public class PedidoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
-    PedidoAdapter.OnItemClickListener listener;
+    ListaPedidosAdapter.OnItemClickListener listener;
     public TextView pedido;
     public TextView mesa;
 
