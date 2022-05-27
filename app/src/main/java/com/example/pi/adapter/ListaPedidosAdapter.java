@@ -20,7 +20,7 @@ public class ListaPedidosAdapter extends RecyclerView.Adapter<ListaPedidosAdapte
 
     private LayoutInflater inflater;
     private OnItemClickListener listener;
-    //private View itemList;
+    private View itemList;
 
 
     public ListaPedidosAdapter(Context context, OnItemClickListener listener) {
@@ -31,7 +31,7 @@ public class ListaPedidosAdapter extends RecyclerView.Adapter<ListaPedidosAdapte
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemList = inflater.inflate(R.layout.item_layout, parent, false);
+        itemList = inflater.inflate(R.layout.item_layout, parent, false);
         return new MyViewHolder(itemList);
     }
 

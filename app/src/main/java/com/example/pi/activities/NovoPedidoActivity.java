@@ -90,15 +90,15 @@ public class NovoPedidoActivity extends AppCompatActivity {
         });
         //-------------
 
+        adapterB = new NovaBebidaAdapter(this, new CardapioDb());
 
-
-        adapterB = new NovaBebidaAdapter(this, new NovaBebidaAdapter.OnItemClickListener() {
+        /*adapterB = new NovaBebidaAdapter(this, new NovaBebidaAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
                 Cardapio bb = CardapioDb.myDataset.get(position);
                 Toast.makeText(NovoPedidoActivity.this, bb.toString(), Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
 
 
         recyclerView.setLayoutManager(layoutManager);

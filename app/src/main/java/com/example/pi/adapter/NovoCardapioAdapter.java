@@ -47,7 +47,7 @@ public class NovoCardapioAdapter extends RecyclerView.Adapter<NovoCardapioAdapte
         return CardapioDb.myDataset.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
+    public class MyViewHolder extends RecyclerView.ViewHolder
     {
         public TextView titulo;
         public TextView detalhe;
@@ -60,13 +60,10 @@ public class NovoCardapioAdapter extends RecyclerView.Adapter<NovoCardapioAdapte
             titulo = itemView.findViewById(R.id.bb_tv);
             detalhe = itemView.findViewById(R.id.detalhes_tv);
             qntItem = itemView.findViewById(R.id.qnt_bebida_tv);
-            itemView.setOnClickListener(this);
+
         }
 
-        @Override
-        public void onClick(View v) {
-            listener.onItemClick(getAdapterPosition());
-        }
+
     }
 
 

@@ -57,7 +57,7 @@ public class ListaPedidosActivity extends AppCompatActivity {
             public void onItemClick(int position) {
                 //Pedido pedido = PedidoDb.myDataset.get(position);
                 Intent intent = new Intent(ListaPedidosActivity.this, DetalhesPedidosActivity.class);
-                intent.putExtra(EXTRA_SHOW, PedidoDb.myDataset.get(position));
+                //intent.putExtra(EXTRA_SHOW, PedidoDb.myDataset.get(position));
                 startActivity(intent);
             }
         });

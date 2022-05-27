@@ -14,14 +14,17 @@ import com.example.pi.models.Cardapio;
 import com.example.pi.models.CardapioDb;
 
 
+
 public class NovaBebidaAdapter extends RecyclerView.Adapter<NovaBebidaAdapter.MyViewHolder> {
+    private CardapioDb mWordList = new CardapioDb();
     private LayoutInflater inflater;
-    private NovaBebidaAdapter.OnItemClickListener listener;
+    //private NovaBebidaAdapter.OnItemClickListener listener;
 
 
-    public NovaBebidaAdapter(Context context, OnItemClickListener listener) {
+    public NovaBebidaAdapter(Context context, CardapioDb wordList/*, OnItemClickListener listener*/) {
         inflater = LayoutInflater.from(context);
-        this.listener =  listener;
+        this.mWordList = wordList;
+        //this.listener =  listener;
     }
 
     @NonNull
@@ -44,7 +47,7 @@ public class NovaBebidaAdapter extends RecyclerView.Adapter<NovaBebidaAdapter.My
     }
 
 
-    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
+    public class MyViewHolder extends RecyclerView.ViewHolder
     {
         public TextView bebida;
         public TextView qntBebida;
@@ -53,16 +56,13 @@ public class NovaBebidaAdapter extends RecyclerView.Adapter<NovaBebidaAdapter.My
             super(itemView);
             bebida = itemView.findViewById(R.id.bb_tv);
             qntBebida =itemView.findViewById(R.id.qnt_bebida_tv);
-            itemView.setOnClickListener(this);
+
         }
 
-        @Override
-        public void onClick(View v) {
-            listener.onItemClick(getAdapterPosition());
-        }
+
     }
 
-    public interface OnItemClickListener {
+    /*public interface OnItemClickListener {
         void onItemClick(int position);
-    }
+    }*/
 }
