@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
@@ -8,55 +9,56 @@
     android:orientation="vertical">
 
     <ImageButton
-        android:id="@+id/add_item_bt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/add_alimento_bt"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:layout_marginEnd="25dp"
+        android:layout_marginEnd="15dp"
         app:srcCompat="@drawable/ic_baseline_add_24" />
 
     <TextView
-        android:id="@+id/qnt_bebida_tv"
-        android:layout_width="37dp"
-        android:layout_height="54dp"
+        android:id="@+id/qnt_alimento_tv"
+        android:layout_width="50dp"
+        android:layout_height="48dp"
         android:layout_centerVertical="true"
         android:layout_marginEnd="0dp"
-        android:layout_toStartOf="@+id/add_item_bt"
+        android:layout_toStartOf="@+id/add_alimento_bt"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="34sp"
         android:textStyle="bold" />
 
     <ImageButton
-        android:id="@+id/remove_item_bt"
-        android:layout_width="wrap_content"
+        android:id="@+id/remove_alimento_bt"
+        android:layout_width="54dp"
         android:layout_height="54dp"
         android:layout_centerVertical="true"
         android:layout_marginEnd="0dp"
-        android:layout_toStartOf="@+id/qnt_bebida_tv"
+        android:layout_toStartOf="@+id/qnt_alimento_tv"
         android:padding="16dp"
         app:srcCompat="@drawable/ic_baseline_remove_24" />
 
     <TextView
-        android:id="@+id/bb_tv"
+        android:id="@+id/titulo_alimento_tv"
         android:layout_width="220dp"
         android:layout_height="31dp"
 
-        android:layout_alignStart="@id/detalhes_tv"
+        android:layout_alignStart="@id/detalhes_alimento_tv"
         android:layout_marginEnd="0dp"
-        android:layout_toStartOf="@+id/remove_item_bt"
+        android:layout_toStartOf="@+id/remove_alimento_bt"
         android:text="TextView"
         android:textSize="17sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/detalhes_tv"
+        android:id="@+id/detalhes_alimento_tv"
         android:layout_width="221dp"
         android:layout_height="41dp"
-        android:layout_below="@+id/bb_tv"
+        android:layout_below="@+id/titulo_alimento_tv"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
-        android:layout_toStartOf="@+id/remove_item_bt"
+        android:layout_toStartOf="@+id/remove_alimento_bt"
         android:text="TextView" />
+
 </RelativeLayout>

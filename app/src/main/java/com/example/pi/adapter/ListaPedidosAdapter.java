@@ -1,7 +1,6 @@
 package com.example.pi.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pi.R;
-import com.example.pi.activities.DetalhesPedidosActivity;
+import com.example.pi.models.Mesa;
+import com.example.pi.models.MesaDb;
 import com.example.pi.models.Pedido;
 import com.example.pi.models.PedidoDb;
 
@@ -31,15 +31,19 @@ public class ListaPedidosAdapter extends RecyclerView.Adapter<ListaPedidosAdapte
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        itemList = inflater.inflate(R.layout.item_layout, parent, false);
+        //itemList = inflater.inflate(R.layout.item_layout, parent, false);
+        itemList = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout,parent,false);
         return new MyViewHolder(itemList);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Pedido pedido = PedidoDb.myDataset.get(position);
-        holder.pedido.setText(pedido.getPedido());
-        holder.mesa.setText(pedido.getMesa());
+        Mesa mesadb = MesaDb.myDataset.get(position);
+        //holder
+        //String doidera = String.valueOf(PedidoDb.myDataset.get(position));
+        //holder.pedido.setText(mesadb.getPedido());
+        holder.mesaTv.setText(String.valueOf(position+1));
+        //holder.mesa.setText(mesadb(position+1));
 
         /*holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,19 +56,17 @@ public class ListaPedidosAdapter extends RecyclerView.Adapter<ListaPedidosAdapte
     }
 
     @Override
-    public int getItemCount() {
-        return PedidoDb.myDataset.size();
-    }
+    public int getItemCount() {return MesaDb.myDataset.size();}
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
-        public TextView pedido;
-        public TextView mesa;
+       // public TextView pedido;
+        public TextView mesaTv;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            pedido = itemView.findViewById(R.id.bb_tv);
-            mesa = itemView.findViewById(R.id.numeroMesa_TextView);
+            mesaTv = itemView.findViewById(R.id.mesa_num);
+         //   pedido = itemView.findViewById(R.id.comanda_num);
             itemView.setOnClickListener(this);
         }
 

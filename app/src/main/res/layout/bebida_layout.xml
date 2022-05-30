@@ -8,28 +8,27 @@
     android:orientation="vertical">
 
     <ImageButton
-        android:id="@+id/add_item_bt"
+        android:id="@+id/add_bebida_bt"
         android:layout_width="54dp"
         android:layout_height="41dp"
         android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="25dp"
+        android:layout_marginEnd="15dp"
         app:srcCompat="@drawable/ic_baseline_add_24" />
 
     <TextView
         android:id="@+id/qnt_bebida_tv"
-        android:layout_width="37dp"
+        android:layout_width="50dp"
         android:layout_height="41dp"
         android:layout_centerVertical="true"
         android:layout_marginEnd="0dp"
-        android:layout_toStartOf="@+id/add_item_bt"
+        android:layout_toStartOf="@+id/add_bebida_bt"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="34sp"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
     <ImageButton
-        android:id="@+id/remove_item_bt"
+        android:id="@+id/remove_bebida_bt"
         android:layout_width="54dp"
         android:layout_height="41dp"
         android:layout_centerVertical="true"
@@ -39,14 +38,14 @@
         app:srcCompat="@drawable/ic_baseline_remove_24" />
 
     <TextView
-        android:id="@+id/bb_tv"
+        android:id="@+id/titulo_bebida_tv"
         android:layout_width="match_parent"
         android:layout_height="41dp"
 
-        android:layout_alignStart="@id/detalhes_tv"
+        android:layout_alignStart="@id/titulo_bebida_tv"
         android:layout_centerVertical="true"
         android:layout_marginEnd="0dp"
-        android:layout_toStartOf="@+id/remove_item_bt"
+        android:layout_toStartOf="@+id/remove_bebida_bt"
         android:text="TextView"
         android:textSize="17sp"
         android:textStyle="bold" />

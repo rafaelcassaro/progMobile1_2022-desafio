@@ -5,28 +5,33 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.pi.R;
 import com.example.pi.adapter.NovaBebidaAdapter;
 import com.example.pi.adapter.NovoCardapioAdapter;
-import com.example.pi.models.Cardapio;
-import com.example.pi.models.CardapioDb;
+import com.example.pi.models.BebidaDb;
+import com.example.pi.models.Mesa;
+
+import java.io.Serializable;
 
 public class NovoPedidoActivity extends AppCompatActivity {
 
-
+    public static final String EXTRA_NEW_CONTACT = "EXTRA_NEW_CONTACT";
     private String valorStr = "";
-    private Integer qntdInt = 0;
-    RecyclerView recyclerView;
-    NovoCardapioAdapter adapter;
-    RecyclerView.LayoutManager layoutManager;
-    private ImageButton remove;
-    private ImageButton add;
-    private TextView qntItem;
+    int qntdInt = 0;
+    private RecyclerView recyclerView;
+    private NovoCardapioAdapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private Button novo_pedido;
+    private TextView novo_mesa;
+
+
 
     //----------------
     RecyclerView recyclerViewB;
@@ -38,47 +43,36 @@ public class NovoPedidoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_novo_pedido);
 
+        novo_pedido = findViewById(R.id.novo_pedido_bt);
+        novo_mesa = findViewById(R.id.novo_mesa_tv);
+
         recyclerView = findViewById(R.id.cardapio_rv);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        ImageButton add =findViewById(R.id.add_item_bt);
-        ImageButton remove = findViewById(R.id.remove_item_bt);
-        qntItem = findViewById(R.id.qnt_bebida_tv);
-
         //---------------------
         recyclerViewB = findViewById(R.id.bebida_rv);
         recyclerViewB.setHasFixedSize(true);
         layoutManagerB = new LinearLayoutManager(this);
 
 
-
-        /*
-        add.setOnClickListener(new View.OnClickListener() {
+        novo_pedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                qntdInt = qntdInt +1;
+                /*final String mesaAdd = novo_mesa.getText().toString();
+                if (mesaAdd.length() == 0){
+                    novo_mesa.requestFocus();
+                    novo_mesa.setError("Doidera");
+                }*/
+                //else{
+                    Intent data = new Intent();
+                    Mesa mesa = new Mesa();
 
-                if(qntItem != null){
-                    qntItem.setText(String.valueOf(qntdInt));
-                }
-
-
+                    data.putExtra(EXTRA_NEW_CONTACT,  mesa);
+                    setResult(RESULT_OK, data);
+                    finish();
+                //}
             }
         });
-
-        remove.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                qntdInt = qntdInt + 1;
-
-
-                if(qntItem != null){
-                    qntItem.setText(String.valueOf(qntdInt));
-                }
-
-            }
-        });*/
 
 
         adapter = new NovoCardapioAdapter(this, new NovoCardapioAdapter.OnItemClickListener() {
@@ -90,7 +84,7 @@ public class NovoPedidoActivity extends AppCompatActivity {
         });
         //-------------
 
-        adapterB = new NovaBebidaAdapter(this, new CardapioDb());
+        adapterB = new NovaBebidaAdapter(this, new BebidaDb());
 
         /*adapterB = new NovaBebidaAdapter(this, new NovaBebidaAdapter.OnItemClickListener() {
             @Override

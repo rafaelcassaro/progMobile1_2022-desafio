@@ -4,26 +4,27 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pi.R;
-import com.example.pi.models.Cardapio;
-import com.example.pi.models.CardapioDb;
-
+import com.example.pi.models.Alimento;
+import com.example.pi.models.BebidaDb;
 
 
 public class NovaBebidaAdapter extends RecyclerView.Adapter<NovaBebidaAdapter.MyViewHolder> {
-    private CardapioDb mWordList = new CardapioDb();
+    private BebidaDb alimentosBebida = new BebidaDb();
     private LayoutInflater inflater;
+
     //private NovaBebidaAdapter.OnItemClickListener listener;
 
 
-    public NovaBebidaAdapter(Context context, CardapioDb wordList/*, OnItemClickListener listener*/) {
+    public NovaBebidaAdapter(Context context, BebidaDb wordList/*, OnItemClickListener listener*/) {
         inflater = LayoutInflater.from(context);
-        this.mWordList = wordList;
+        this.alimentosBebida = wordList;
         //this.listener =  listener;
     }
 
@@ -36,26 +37,47 @@ public class NovaBebidaAdapter extends RecyclerView.Adapter<NovaBebidaAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Cardapio bb = CardapioDb.myDataset.get(position);
-        holder.bebida.setText(bb.getBebida());
-        holder.qntBebida.setText(String.valueOf(bb.getQntdBebida()));
+        Alimento bb = BebidaDb.myDataset.get(position);
+        holder.bebida.setText(bb.getProduto());
+        holder.addBebida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bb.setQntd(bb.getQntd()+1);
+                holder.qntd.setText(String.valueOf(bb.getQntd()));
+            }
+        });
+        holder.removeBebida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(bb.getQntd() > 0){
+                    bb.setQntd(bb.getQntd()-1);
+                    holder.qntd.setText(String.valueOf(bb.getQntd()));
+                }
+            }
+        });
+
     }
 
     @Override
     public int getItemCount() {
-        return  CardapioDb.myDataset.size();
+        return BebidaDb.myDataset.size();
     }
+
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder
     {
         public TextView bebida;
-        public TextView qntBebida;
+        public TextView qntd;
+        public ImageButton addBebida;
+        public ImageButton removeBebida;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            bebida = itemView.findViewById(R.id.bb_tv);
-            qntBebida =itemView.findViewById(R.id.qnt_bebida_tv);
+            bebida = itemView.findViewById(R.id.titulo_bebida_tv);
+            qntd = itemView.findViewById(R.id.qnt_bebida_tv);
+            addBebida = itemView.findViewById(R.id.add_bebida_bt);
+            removeBebida = itemView.findViewById(R.id.remove_bebida_bt);
 
         }
 

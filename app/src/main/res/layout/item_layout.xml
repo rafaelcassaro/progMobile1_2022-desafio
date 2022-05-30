@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -9,44 +10,47 @@
     android:padding="15dp">
 
     <TextView
-        android:id="@+id/novo_Pedido"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginStart="70dp"
-        android:layout_weight="0"
-        android:gravity="start"
-        android:text="Pedido:"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/bb_tv"
-        android:layout_width="65dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="0dp"
-        android:layout_weight="0"
-        android:gravity="center"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <TextView
         android:id="@+id/novo_Mesa"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_marginStart="0dp"
+        android:layout_marginStart="50dp"
         android:layout_weight="0"
         android:gravity="start"
-        android:text="Mesa:"
+        android:text="@string/mesa"
+        android:textColor="#302F2F"
         android:textSize="24sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/numeroMesa_TextView"
-        android:layout_width="64dp"
+        android:id="@+id/mesa_num"
+        android:layout_width="80dp"
         android:layout_height="30dp"
         android:layout_marginStart="0dp"
         android:layout_weight="0"
-        android:gravity="center"
+        android:gravity="start"
         android:textSize="24sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/novo_Comanda"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="0dp"
+        android:layout_weight="0"
+        android:gravity="start"
+        android:text="@string/comanda"
+        android:textColor="#302F2F"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/comanda_num"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="0dp"
+        android:layout_weight="0"
+        android:gravity="start"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
 </LinearLayout>

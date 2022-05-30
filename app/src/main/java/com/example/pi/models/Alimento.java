@@ -14,6 +14,11 @@ public class Alimento {
         this.qntd = qntd;
     }
 
+    public Alimento(String produto, Integer qntd) {
+        this.produto = produto;
+        this.qntd = qntd;
+    }
+
     public String getProduto() {
         return produto;
     }

@@ -15,10 +15,11 @@ public class AlimentosDb {
         myDataset.add(new Alimento("Prato 3", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0));
         myDataset.add(new Alimento("Prato 4", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0));
         myDataset.add(new Alimento("Prato 5", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0));
-        myDataset.add(new Alimento("Prato 5", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0));
-        myDataset.add(new Alimento("Bebida 1", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0));
-        myDataset.add(new Alimento("Bebida 1", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0));
-        myDataset.add(new Alimento("Bebida 1", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0));
+        myDataset.add(new Alimento("Prato 6", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0));
+        myDataset.add(new Alimento("Prato 7", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0));
+        myDataset.add(new Alimento("Prato 8", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0));
+        myDataset.add(new Alimento("Prato 7", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0));
+
 
 
     }

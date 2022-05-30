@@ -16,6 +16,8 @@ import android.view.View;
 
 import com.example.pi.R;
 import com.example.pi.adapter.ListaPedidosAdapter;
+import com.example.pi.models.Mesa;
+import com.example.pi.models.MesaDb;
 import com.example.pi.models.Pedido;
 import com.example.pi.models.PedidoDb;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -28,19 +30,20 @@ public class ListaPedidosActivity extends AppCompatActivity {
     private ListaPedidosAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    /*
+
+
     ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode() == Activity.RESULT_OK) {
                         Intent data = result.getData();
-                        Contato contato = (Contato) data.getSerializableExtra(NovoPedidoActivity.EXTRA_NEW_CONTACT);
-                        ContatoDataBase.myDataSet.add(contato);
+                        Mesa mesa = (Mesa) data.getSerializableExtra(NovoPedidoActivity.EXTRA_NEW_CONTACT);
+                        MesaDb.myDataset.add(mesa);
                         adapter.notifyDataSetChanged();
                     }
                 }
-            });*/
+            });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +60,7 @@ public class ListaPedidosActivity extends AppCompatActivity {
             public void onItemClick(int position) {
                 //Pedido pedido = PedidoDb.myDataset.get(position);
                 Intent intent = new Intent(ListaPedidosActivity.this, DetalhesPedidosActivity.class);
-                //intent.putExtra(EXTRA_SHOW, PedidoDb.myDataset.get(position));
+                intent.putExtra(EXTRA_SHOW, MesaDb.myDataset.get(position));
                 startActivity(intent);
             }
         });
@@ -69,7 +72,8 @@ public class ListaPedidosActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(ListaPedidosActivity.this, NovoPedidoActivity.class);
-                startActivity(i);
+                mStartForResult.launch(i);
+                //startActivity(i);
             }
         });
 

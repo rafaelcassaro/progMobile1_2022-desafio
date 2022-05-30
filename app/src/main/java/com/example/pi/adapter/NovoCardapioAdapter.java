@@ -4,14 +4,15 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pi.R;
-import com.example.pi.models.Cardapio;
-import com.example.pi.models.CardapioDb;
+import com.example.pi.models.Alimento;
+import com.example.pi.models.AlimentosDb;
 
 
 public class NovoCardapioAdapter extends RecyclerView.Adapter<NovoCardapioAdapter.MyViewHolder> {
@@ -34,32 +35,51 @@ public class NovoCardapioAdapter extends RecyclerView.Adapter<NovoCardapioAdapte
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Cardapio cardapio = CardapioDb.myDataset.get(position);
-        holder.titulo.setText(cardapio.getTitulo());
+        Alimento cardapio = AlimentosDb.myDataset.get(position);
+        holder.prato.setText(cardapio.getProduto());
         holder.detalhe.setText(cardapio.getDetalhe());
-        holder.qntItem.setText(String.valueOf(cardapio.getQntd()));
+        holder.addPrato.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cardapio.setQntd(cardapio.getQntd()+1);
+                holder.qntdPrato.setText(String.valueOf(cardapio.getQntd()));
+            }
+        });
+        holder.removePrato.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(cardapio.getQntd() > 0) {
+                    cardapio.setQntd(cardapio.getQntd() - 1);
+                    holder.qntdPrato.setText(String.valueOf(cardapio.getQntd()));
+                }
+            }
+        });
+
+
 
     }
 
 
     @Override
     public int getItemCount() {
-        return CardapioDb.myDataset.size();
+        return AlimentosDb.myDataset.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder
     {
-        public TextView titulo;
+        public TextView prato;
         public TextView detalhe;
-        public TextView qntItem;
-        //public ImageButton remove;
-        //public ImageButton add;
+        public TextView qntdPrato;
+        public ImageButton removePrato;
+        public ImageButton addPrato;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            titulo = itemView.findViewById(R.id.bb_tv);
-            detalhe = itemView.findViewById(R.id.detalhes_tv);
-            qntItem = itemView.findViewById(R.id.qnt_bebida_tv);
+            prato = itemView.findViewById(R.id.titulo_alimento_tv);
+            detalhe = itemView.findViewById(R.id.detalhes_alimento_tv);
+            removePrato = itemView.findViewById(R.id.remove_alimento_bt);
+            addPrato = itemView.findViewById(R.id.add_alimento_bt);
+            qntdPrato = itemView.findViewById(R.id.qnt_alimento_tv);
 
         }
 

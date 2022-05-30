@@ -1,13 +1,18 @@
 package com.example.pi.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Comanda {
+public class Comanda implements Serializable {
     private String nomeGarcom;
     private List<Alimento> alimentos = new ArrayList<>();
 
     public Comanda() {
+    }
+
+    public Comanda(List<Alimento> alimentos) {
+        this.alimentos = alimentos;
     }
 
     public Comanda(String nomeGarcom, List<Alimento> alimentos) {

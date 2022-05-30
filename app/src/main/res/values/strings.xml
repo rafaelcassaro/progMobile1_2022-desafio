@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">pi</string>
+    <string name="comanda">Comanda:</string>
+    <string name="mesa">Mesa:</string>
 </resources>

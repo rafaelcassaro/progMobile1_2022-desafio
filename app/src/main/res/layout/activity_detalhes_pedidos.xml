@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="5dp"
     tools:context=".activities.DetalhesPedidosActivity">
 
     <TextView
@@ -27,7 +28,7 @@
         android:background="#FBF7CD"
         android:text="Pedido:"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
+        app:layout_constraintEnd_toStartOf="@+id/detalhe_pedido_tv"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -39,11 +40,11 @@
         android:background="#FBF7CD"
         android:text="Mesa:"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber2"
+        app:layout_constraintEnd_toStartOf="@+id/mesa_detalhes_tv"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/editTextNumber"
+        android:id="@+id/detalhe_pedido_tv"
         android:layout_width="40dp"
         android:layout_height="27dp"
         android:layout_marginEnd="5dp"
@@ -56,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/editTextNumber2"
+        android:id="@+id/mesa_detalhes_tv"
         android:layout_width="40dp"
         android:layout_height="27dp"
         android:layout_marginEnd="112dp"
@@ -67,15 +68,6 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="186dp">
-
-    </com.google.android.material.chip.ChipGroup>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/detalhes_rv"
@@ -89,7 +81,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/delete_pedido_bt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#884040"
@@ -109,7 +101,7 @@
         android:textColor="#090000"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/delete_pedido_bt"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detalhes_rv" />
 
@@ -121,7 +113,7 @@
         android:ems="10"
         android:inputType="number"
         android:text="textView"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/delete_pedido_bt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView9" />
