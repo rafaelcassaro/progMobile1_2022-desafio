@@ -66,10 +66,10 @@
     <Button
         android:id="@+id/novo_pedido_bt"
         android:layout_width="0dp"
-        android:layout_height="44dp"
+        android:layout_height="60dp"
         android:backgroundTint="#F44336"
         android:text="confirmar"
-        android:textSize="20sp"
+        android:textSize="27sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,7 +79,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cardapio_rv"
         android:layout_width="0dp"
-        android:layout_height="247dp"
+        android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

@@ -2,11 +2,13 @@ package com.example.pi.models;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Comanda implements Serializable {
     private String nomeGarcom;
     private Integer numComanda;
+    private Date data;
     private List<Alimento> alimentos;
 
     public String getNomeGarcom() {
@@ -28,6 +30,9 @@ public class Comanda implements Serializable {
         this.numComanda = numComanda;
     }
 
+    public void setAlimento(Alimento adicionar){
+        this.alimentos.add(adicionar);
+    }
 
     public Comanda(String nomeGarcom, Integer numComanda) {
         this.nomeGarcom = nomeGarcom;
@@ -39,6 +44,14 @@ public class Comanda implements Serializable {
         this.numComanda = numComanda;
         this.alimentos = new ArrayList<Alimento>();
         this.alimentos = alimentos;
+    }
+
+    public Double getTotal() {
+        Double preco = 0.0;
+        for(int i = 0; i < alimentos.size(); i++) {
+            preco = (alimentos.get(i).getValor()*alimentos.get(i).getQntd()) + preco;
+        }
+        return preco;
     }
 
 

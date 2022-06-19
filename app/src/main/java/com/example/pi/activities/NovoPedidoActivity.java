@@ -15,7 +15,9 @@ import android.widget.TextView;
 import com.example.pi.R;
 import com.example.pi.adapter.NovaBebidaAdapter;
 import com.example.pi.adapter.NovoCardapioAdapter;
+import com.example.pi.models.AlimentosDb;
 import com.example.pi.models.BebidaDb;
+import com.example.pi.models.Comanda;
 import com.example.pi.models.Mesa;
 
 import java.io.Serializable;
@@ -28,8 +30,13 @@ public class NovoPedidoActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private NovoCardapioAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
+    //-----------------
+
     private Button novo_pedido;
     private TextView novo_mesa;
+    private TextView novo_comanda;
+    private TextView add_alimento_tv;
+    private TextView add_bebida_tv;
 
 
 
@@ -45,6 +52,10 @@ public class NovoPedidoActivity extends AppCompatActivity {
 
         novo_pedido = findViewById(R.id.novo_pedido_bt);
         novo_mesa = findViewById(R.id.novo_mesa_tv);
+        novo_comanda = findViewById(R.id.novo_comanda_tv);
+
+        add_alimento_tv = findViewById(R.id.qnt_alimento_tv);
+        add_bebida_tv = findViewById(R.id.qnt_bebida_tv);
 
         recyclerView = findViewById(R.id.cardapio_rv);
         recyclerView.setHasFixedSize(true);
@@ -58,19 +69,29 @@ public class NovoPedidoActivity extends AppCompatActivity {
         novo_pedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*final String mesaAdd = novo_mesa.getText().toString();
+                final String mesaAdd = novo_mesa.getText().toString();
+                final String comandaAdd = novo_comanda.getText().toString();
+                final String alimentoAdd = add_alimento_tv.getText().toString();
+
                 if (mesaAdd.length() == 0){
                     novo_mesa.requestFocus();
-                    novo_mesa.setError("Doidera");
-                }*/
-                //else{
+                    novo_mesa.setError("Preencha o campo");
+                }
+                else if(comandaAdd.length() == 0){
+                    novo_comanda.requestFocus();
+                    novo_comanda.setError("Preencha o campo");
+                }
+                else{
                     Intent data = new Intent();
-                    Mesa mesa = new Mesa();
+                    Comanda comanda = new Comanda("",Integer.parseInt(mesaAdd));
+                    Mesa mesa = new Mesa(Integer.parseInt(mesaAdd),comanda);
+                    mesa.getComanda().setNumComanda(Integer.parseInt(comandaAdd));
+                    //mesa.getComanda().setAlimento(AlimentosDb.myDataset.get(alimentoAdd.));
 
                     data.putExtra(EXTRA_NEW_CONTACT,  mesa);
                     setResult(RESULT_OK, data);
                     finish();
-                //}
+                }
             }
         });
 

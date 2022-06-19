@@ -42,6 +42,7 @@ public class DetalhesPedidosActivity extends AppCompatActivity {
         nomeTv.setText(mesa.getNomeGarcom());
         comandaTv.setText(String.valueOf(mesa.getNumComanda()));
         mesaTv.setText(String.valueOf(mesa.getNumMesa()));
+        totalTv.setText(String.valueOf(mesa.getTotal()));
 
 
 

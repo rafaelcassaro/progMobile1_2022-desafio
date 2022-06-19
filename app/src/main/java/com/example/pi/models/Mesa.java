@@ -14,6 +14,7 @@ public class Mesa implements Serializable {
     public void setNumMesa(Integer numMesa) {
         this.numMesa = numMesa;
     }
+
     public Comanda getComanda() {
         return comanda;
     }
@@ -24,6 +25,7 @@ public class Mesa implements Serializable {
     public Mesa(){}
 
     public Mesa(Integer numMesa) {
+
         this.numMesa = numMesa;
     }
 
@@ -48,5 +50,9 @@ public class Mesa implements Serializable {
 
     public List<Alimento>  getListAlimentos() {
         return comanda.getAlimentos();
+    }
+
+    public Double getTotal() {
+        return comanda.getTotal();
     }
 }

@@ -6,9 +6,16 @@ public class Alimento implements Serializable {
     private String produto;
     private String detalhe;
     private Integer qntd;
-    //private Double valor;
+    private Double valor;
 
     public Alimento() {
+    }
+
+    public Alimento(String produto, String detalhe, Integer qntd, Double valor) {
+        this.produto = produto;
+        this.detalhe = detalhe;
+        this.qntd = qntd;
+        this.valor = valor;
     }
 
     public Alimento(String produto, String detalhe, Integer qntd) {
@@ -17,9 +24,10 @@ public class Alimento implements Serializable {
         this.qntd = qntd;
     }
 
-    public Alimento(String produto, Integer qntd) {
+    public Alimento(String produto, Integer qntd, Double valor) {
         this.produto = produto;
         this.qntd = qntd;
+        this.valor = valor;
     }
 
     @Override
@@ -51,5 +59,11 @@ public class Alimento implements Serializable {
         this.qntd = qntd;
     }
 
+    public Double getValor() {
+        return valor;
+    }
 
+    public void setValor(Double valor) {
+        this.valor = valor;
+    }
 }
