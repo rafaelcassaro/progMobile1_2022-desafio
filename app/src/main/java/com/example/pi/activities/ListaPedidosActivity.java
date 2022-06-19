@@ -18,8 +18,6 @@ import com.example.pi.R;
 import com.example.pi.adapter.ListaPedidosAdapter;
 import com.example.pi.models.Mesa;
 import com.example.pi.models.MesaDb;
-import com.example.pi.models.Pedido;
-import com.example.pi.models.PedidoDb;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ListaPedidosActivity extends AppCompatActivity {
@@ -27,7 +25,8 @@ public class ListaPedidosActivity extends AppCompatActivity {
     public static final String EXTRA_SHOW = "EXTRA_SHOW";
     private static final int ADD_CONTACT_REQUEST = 1;
     private RecyclerView recyclerView;
-    private ListaPedidosAdapter adapter;
+    //private ListaPedidosAdapter adapter;
+    private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
 
@@ -58,9 +57,9 @@ public class ListaPedidosActivity extends AppCompatActivity {
         adapter = new ListaPedidosAdapter(this, new ListaPedidosAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                //Pedido pedido = PedidoDb.myDataset.get(position);
                 Intent intent = new Intent(ListaPedidosActivity.this, DetalhesPedidosActivity.class);
                 intent.putExtra(EXTRA_SHOW, MesaDb.myDataset.get(position));
+
                 startActivity(intent);
             }
         });

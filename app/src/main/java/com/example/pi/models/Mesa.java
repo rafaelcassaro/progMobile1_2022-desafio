@@ -5,21 +5,48 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Mesa implements Serializable {
-    private List<Comanda> comandas = new ArrayList<>();
+    private Integer numMesa;
+    private Comanda comanda;
 
-    public Mesa() {
+    public Integer getNumMesa() {
+        return numMesa;
+    }
+    public void setNumMesa(Integer numMesa) {
+        this.numMesa = numMesa;
+    }
+    public Comanda getComanda() {
+        return comanda;
+    }
+    public void setComanda(Comanda comanda) {
+        this.comanda = comanda;
+    }
+
+    public Mesa(){}
+
+    public Mesa(Integer numMesa) {
+        this.numMesa = numMesa;
     }
 
 
-    public Mesa(List<Comanda> comandas) {
-        this.comandas = comandas;
+    public Mesa(Integer numMesa, Comanda comanda) {
+        this.numMesa = numMesa;
+        this.comanda = comanda;
     }
 
-    public List<Comanda> getComandas() {
-        return comandas;
+    @Override
+    public String toString() {
+        return "Mesa [numMesa=" + numMesa + ", comanda=" + comanda + "]";
     }
 
-    public void setComandas(List<Comanda> comandas) {
-        this.comandas = comandas;
+    public String getNomeGarcom() {
+        return comanda.getNomeGarcom();
+    }
+
+    public Integer getNumComanda() {
+        return comanda.getNumComanda();
+    }
+
+    public List<Alimento>  getListAlimentos() {
+        return comanda.getAlimentos();
     }
 }

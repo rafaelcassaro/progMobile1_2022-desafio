@@ -11,7 +11,7 @@
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="36dp"
-        android:background="#3F51B5"
+        android:background="#2196F3"
         android:text="DETALHES DO PEDIDO"
         android:textAlignment="center"
         android:textColor="#FBFBFB"
@@ -24,11 +24,12 @@
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="31dp"
         android:background="#FBF7CD"
-        android:text="Pedido:"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/detalhe_pedido_tv"
+        android:text="Mesa:"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/mesa_detalhe_tv"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -36,57 +37,47 @@
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="31dp"
         android:background="#FBF7CD"
-        android:text="Mesa:"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/mesa_detalhes_tv"
+        android:text="Comanda:"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/comanda_detalhe_tv"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/detalhe_pedido_tv"
-        android:layout_width="40dp"
-        android:layout_height="27dp"
+        android:id="@+id/mesa_detalhe_tv"
+        android:layout_width="48dp"
+        android:layout_height="31dp"
         android:layout_marginEnd="5dp"
         android:background="#FBF7CD"
         android:ems="10"
         android:inputType="number"
-        android:text="00"
-        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/mesa_detalhes_tv"
+        android:id="@+id/comanda_detalhe_tv"
         android:layout_width="40dp"
-        android:layout_height="27dp"
-        android:layout_marginEnd="112dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="60dp"
         android:background="#FBF7CD"
         android:ems="10"
         android:inputType="number"
-        android:text="00"
-        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/detalhes_rv"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumber8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/delete_pedido_bt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#884040"
+        android:backgroundTint="#F44336"
         android:text="CANCELAR PEDIDO"
-        android:textSize="20sp"
+        android:textSize="27sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,28 +85,67 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="65dp"
+        android:layout_width="105dp"
         android:layout_height="35dp"
         android:layout_marginBottom="18dp"
-        android:text="Total:"
+        android:text="Total:R$ "
         android:textColor="#090000"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/delete_pedido_bt"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detalhes_rv" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/editTextNumber8"
+        android:id="@+id/total_detalhe_tv"
         android:layout_width="145dp"
         android:layout_height="35dp"
         android:layout_marginBottom="18dp"
         android:ems="10"
         android:inputType="number"
         android:text="textView"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/delete_pedido_bt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/nome_detalhe_tv"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="4dp"
+        android:text="TextView"
+        android:textAlignment="gravity"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/prods_detalhe_tv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#050000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/total_detalhe_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nome_detalhe_tv" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:text="Garçom:"
+        android:textAlignment="gravity"
+        android:textColor="#050000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/prods_detalhe_tv"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

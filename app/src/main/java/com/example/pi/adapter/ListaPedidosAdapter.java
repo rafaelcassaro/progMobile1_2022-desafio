@@ -12,15 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.pi.R;
 import com.example.pi.models.Mesa;
 import com.example.pi.models.MesaDb;
-import com.example.pi.models.Pedido;
-import com.example.pi.models.PedidoDb;
 
 
 public class ListaPedidosAdapter extends RecyclerView.Adapter<ListaPedidosAdapter.MyViewHolder> {
 
     private LayoutInflater inflater;
     private OnItemClickListener listener;
-    private View itemList;
+    //View itemList;
 
 
     public ListaPedidosAdapter(Context context, OnItemClickListener listener) {
@@ -32,17 +30,20 @@ public class ListaPedidosAdapter extends RecyclerView.Adapter<ListaPedidosAdapte
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //itemList = inflater.inflate(R.layout.item_layout, parent, false);
-        itemList = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout,parent,false);
+        View itemList = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout,parent,false);
         return new MyViewHolder(itemList);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Mesa mesadb = MesaDb.myDataset.get(position);
-        //holder
         //String doidera = String.valueOf(PedidoDb.myDataset.get(position));
         //holder.pedido.setText(mesadb.getPedido());
-        holder.mesaTv.setText(String.valueOf(position+1));
+
+        holder.mesaTv.setText(String.valueOf(mesadb.getNumMesa()));
+        holder.comandaTv.setText(String.valueOf(mesadb.getNumComanda()));
+        //holder.mesaTv.setText(String.valueOf(position+1));
+
         //holder.mesa.setText(mesadb(position+1));
 
         /*holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -60,13 +61,13 @@ public class ListaPedidosAdapter extends RecyclerView.Adapter<ListaPedidosAdapte
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
-       // public TextView pedido;
+        public TextView comandaTv;
         public TextView mesaTv;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             mesaTv = itemView.findViewById(R.id.mesa_num);
-         //   pedido = itemView.findViewById(R.id.comanda_num);
+            comandaTv = itemView.findViewById(R.id.comanda_num);
             itemView.setOnClickListener(this);
         }
 

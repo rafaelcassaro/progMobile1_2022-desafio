@@ -1,9 +1,12 @@
 package com.example.pi.models;
 
-public class Alimento {
+import java.io.Serializable;
+
+public class Alimento implements Serializable {
     private String produto;
     private String detalhe;
     private Integer qntd;
+    //private Double valor;
 
     public Alimento() {
     }
@@ -17,6 +20,11 @@ public class Alimento {
     public Alimento(String produto, Integer qntd) {
         this.produto = produto;
         this.qntd = qntd;
+    }
+
+    @Override
+    public String toString() {
+        return  produto  +" x"+ qntd + "\n";
     }
 
     public String getProduto() {
@@ -42,4 +50,6 @@ public class Alimento {
     public void setQntd(Integer qntd) {
         this.qntd = qntd;
     }
+
+
 }

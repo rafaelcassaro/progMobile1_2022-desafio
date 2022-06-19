@@ -20,7 +20,7 @@
         android:id="@+id/textView"
         android:layout_width="408dp"
         android:layout_height="36dp"
-        android:background="#3F51B5"
+        android:background="#2196F3"
         android:text="PEDIDOS"
         android:textAlignment="center"
         android:textColor="#FBFBFB"
