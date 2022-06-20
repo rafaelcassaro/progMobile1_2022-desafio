@@ -17,11 +17,15 @@ import android.widget.TextView;
 
 import com.example.pi.R;
 import com.example.pi.adapter.ListaPedidosAdapter;
+import com.example.pi.db.AlimentosDb;
+import com.example.pi.db.BebidaDb;
+import com.example.pi.models.Alimento;
 import com.example.pi.models.Mesa;
 import com.example.pi.db.MesaDb;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ListaPedidosActivity extends AppCompatActivity {
@@ -46,10 +50,27 @@ public class ListaPedidosActivity extends AppCompatActivity {
                         Mesa mesa = (Mesa) data.getSerializableExtra(NovoPedidoActivity.EXTRA_NEW_CONTACT);
                         mesa.getComanda().setNomeGarcom(nomeSalvo);
                         MesaDb.myDataset.add(mesa);
+
+                        for(int p =0 ; p < AlimentosDb.myDataset.size();p++){
+                            AlimentosDb.myDataset.get(p).setQntd(0);
+                        }
+                        for(int p =0 ; p < BebidaDb.myDataset.size();p++){
+                            BebidaDb.myDataset.get(p).setQntd(0);
+                        }
+
                         adapter.notifyDataSetChanged();
                     }
                 }
             });
+
+    ActivityResultLauncher<Intent> mStartForResult2 = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if(result.getResultCode() == Activity.RESULT_OK){
+                adapter.notifyDataSetChanged();
+            }
+        }
+    });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +94,7 @@ public class ListaPedidosActivity extends AppCompatActivity {
             public void onItemClick(int position) {
                 Intent intent = new Intent(ListaPedidosActivity.this, DetalhesPedidosActivity.class);
                 intent.putExtra(EXTRA_SHOW, MesaDb.myDataset.get(position));
-                startActivity(intent);
+                mStartForResult2.launch(intent);
             }
         });
 
@@ -101,11 +122,14 @@ public class ListaPedidosActivity extends AppCompatActivity {
                 //    nomeSalvo = nomeNovo;
                 //}
                 else {
+
                     //name_visu.setText(nomeSalvo);
                     nome_novo.setError(null);
                     nome_novo.setText(null);
+
                     Intent i = new Intent(ListaPedidosActivity.this, NovoPedidoActivity.class);
                     mStartForResult.launch(i);
+
                     //startActivity(i);
                 }
             }

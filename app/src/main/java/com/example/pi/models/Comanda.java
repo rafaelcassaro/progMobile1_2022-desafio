@@ -48,10 +48,21 @@ public class Comanda implements Serializable {
         this.alimentos.add(adicionar);
     }
 
+    public Comanda() {
+        this.alimentos = new ArrayList<Alimento>();
+    }
+
     public Comanda(String nomeGarcom, Integer numComanda) {
         this.nomeGarcom = nomeGarcom;
         this.numComanda = numComanda;
         this.alimentos = new ArrayList<Alimento>();
+    }
+
+    public Comanda(String nomeGarcom, Integer numComanda, List<Alimento> alimentos) {
+        this.nomeGarcom = nomeGarcom;
+        this.numComanda = numComanda;
+        this.alimentos = new ArrayList<Alimento>();
+        this.alimentos = alimentos;
     }
 
     public Comanda(Date moment,String nomeGarcom, Integer numComanda, List<Alimento> alimentos) {
@@ -63,12 +74,6 @@ public class Comanda implements Serializable {
     }
 
 
-    public Comanda(String nomeGarcom, Integer numComanda, List<Alimento> alimentos) {
-        this.nomeGarcom = nomeGarcom;
-        this.numComanda = numComanda;
-        this.alimentos = new ArrayList<Alimento>();
-        this.alimentos = alimentos;
-    }
 
     public Double getTotal() {
         Double preco = 0.0;
@@ -83,6 +88,7 @@ public class Comanda implements Serializable {
     public String toString() {
         return "Comanda [nomeGarcom=" + nomeGarcom + ", numComanda=" + numComanda + ", alimentos=" + alimentos + "]";
     }
+
 
     public String printAlimentos() {
         String produtos = "";

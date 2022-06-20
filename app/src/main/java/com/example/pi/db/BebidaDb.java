@@ -10,12 +10,12 @@ public class BebidaDb {
     public static List<Alimento> myDataset = new ArrayList<>();
 
     static {
-        myDataset.add(new Alimento("Bebida1", 3,1.01));
-        myDataset.add(new Alimento("Bebida2", 0,2.01));
-        myDataset.add(new Alimento("Bebida3", 0,3.01));
-        myDataset.add(new Alimento("Bebida4", 0,4.01));
-        myDataset.add(new Alimento("Bebida5", 2,5.01));
-        myDataset.add(new Alimento("Bebida6", 4,6.01));
+        myDataset.add(new Alimento("COCA", 0,7.00));
+        myDataset.add(new Alimento("PEPSI", 0,6.5));
+        myDataset.add(new Alimento("FANTA UVA", 0,6.00));
+        myDataset.add(new Alimento("SKOL", 0,2.20));
+        myDataset.add(new Alimento("HEINEKEN", 0,3.50));
+        myDataset.add(new Alimento("GLACIAL", 0,2.00));
 
     }
 }

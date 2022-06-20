@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="5dp"
+    android:background="#E3FBE4"
     tools:context=".activities.NovoPedidoActivity">
 
     <TextView
@@ -26,7 +27,7 @@
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="36dp"
-        android:background="#2196F3"
+        android:background="#1A4A70"
         android:text="NOVO PEDIDO"
         android:textAlignment="center"
         android:textColor="#FBFBFB"
@@ -104,6 +105,8 @@
         android:ems="10"
         android:hint="Digite a mesa"
         android:inputType="number"
+        android:textAlignment="center"
+        android:textColorHint="#4F7C75"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.119"
         app:layout_constraintStart_toStartOf="parent"
@@ -116,6 +119,8 @@
         android:ems="10"
         android:hint="Digite a comanda"
         android:inputType="number"
+        android:textAlignment="center"
+        android:textColorHint="#4F7C75"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/novo_mesa_tv"
         app:layout_constraintTop_toBottomOf="@+id/textView" />

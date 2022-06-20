@@ -11,8 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pi.R;
+import com.example.pi.db.ComandaDb;
 import com.example.pi.models.Alimento;
 import com.example.pi.db.AlimentosDb;
+import com.example.pi.models.Comanda;
 
 
 public class NovoCardapioAdapter extends RecyclerView.Adapter<NovoCardapioAdapter.MyViewHolder> {
@@ -35,6 +37,8 @@ public class NovoCardapioAdapter extends RecyclerView.Adapter<NovoCardapioAdapte
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        //Comanda comandaTest = new Comanda();
+
         Alimento cardapio = AlimentosDb.myDataset.get(position);
         holder.prato.setText(cardapio.getProduto());
         holder.detalhe.setText(cardapio.getDetalhe());
@@ -43,6 +47,10 @@ public class NovoCardapioAdapter extends RecyclerView.Adapter<NovoCardapioAdapte
             public void onClick(View view) {
                 cardapio.setQntd(cardapio.getQntd()+1);
                 holder.qntdPrato.setText(String.valueOf(cardapio.getQntd()));
+                //AlimentosDb.alimentosStep.get(position).setQntd(AlimentosDb.alimentosStep.get(position).getQntd()+1);
+
+                //comandaTest.setAlimento();
+                //ComandaDb.comandaStep.add();
             }
         });
         holder.removePrato.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +59,7 @@ public class NovoCardapioAdapter extends RecyclerView.Adapter<NovoCardapioAdapte
                 if(cardapio.getQntd() > 0) {
                     cardapio.setQntd(cardapio.getQntd() - 1);
                     holder.qntdPrato.setText(String.valueOf(cardapio.getQntd()));
+                    //AlimentosDb.alimentosStep.get(position).setQntd(AlimentosDb.alimentosStep.get(position).getQntd()-1);
                 }
             }
         });

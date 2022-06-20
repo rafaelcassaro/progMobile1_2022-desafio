@@ -25,10 +25,13 @@ public class ComandaDb {
         comandaDataSet.add(new Comanda(fff,"Jose",2, BebidaDb.myDataset));
         comandaDataSet.add(new Comanda(fff2,"adailto",1, BebidaDb.myDataset));
         comandaDataSet.add(new Comanda(fff3,"Jose",1, BebidaDb.myDataset));
+
+
+
     }
 
 
-    //public static Comanda comandaDataSet = new Comanda("Jose",2,BebidaDb.myDataset);
+
 
 
 }

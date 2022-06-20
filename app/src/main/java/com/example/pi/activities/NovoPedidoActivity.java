@@ -14,11 +14,15 @@ import android.widget.TextView;
 import com.example.pi.R;
 import com.example.pi.adapter.NovaBebidaAdapter;
 import com.example.pi.adapter.NovoCardapioAdapter;
+import com.example.pi.db.AlimentosDb;
 import com.example.pi.db.BebidaDb;
+import com.example.pi.models.Alimento;
 import com.example.pi.models.Comanda;
 import com.example.pi.models.Mesa;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class NovoPedidoActivity extends AppCompatActivity {
 
@@ -35,6 +39,7 @@ public class NovoPedidoActivity extends AppCompatActivity {
     private TextView novo_comanda;
     private TextView add_alimento_tv;
     private TextView add_bebida_tv;
+
 
 
 
@@ -64,13 +69,16 @@ public class NovoPedidoActivity extends AppCompatActivity {
         layoutManagerB = new LinearLayoutManager(this);
 
 
+
+
         novo_pedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Date now = new Date(System.currentTimeMillis());
                 final String mesaAdd = novo_mesa.getText().toString();
                 final String comandaAdd = novo_comanda.getText().toString();
-                //final String alimentoAdd = add_alimento_tv.getText().toString();
+               // final String alimentoAdd = add_alimento_tv.getText().toString();
+               // final String alimentoAdd = add_alimento_tv.toString()
 
                 if (mesaAdd.length() == 0){
                     novo_mesa.requestFocus();
@@ -81,17 +89,37 @@ public class NovoPedidoActivity extends AppCompatActivity {
                     novo_comanda.setError("Preencha o campo");
                 }
                 else{
+
                     Intent data = new Intent();
-                    Comanda comanda = new Comanda("",Integer.parseInt(mesaAdd));
+                    List<Alimento> alimentosStep = new ArrayList<>();
+                    //List<Alimento> alimentosStep2 = new ArrayList<>();
+                    //alimentosStep.clear();
+                    alimentosStep.addAll(AlimentosDb.myDataset);
+                    alimentosStep.addAll(BebidaDb.myDataset);
+
+                    for(int p = alimentosStep.size()-1; p >= 0; p--){
+                        //int x = alimentosStep.get(p).getQntd();
+                        if(alimentosStep.get(p).getQntd() == 0){
+                            alimentosStep.remove(p);
+                        }
+                    }
+
+                    Comanda comanda = new Comanda("",Integer.parseInt(comandaAdd), alimentosStep);
                     Mesa mesa = new Mesa(Integer.parseInt(mesaAdd),comanda);
-                    mesa.getComanda().setNumComanda(Integer.parseInt(comandaAdd));
+
+                    //mesa.getComanda().setNumComanda(Integer.parseInt(comandaAdd));
                     mesa.getComanda().setMoment(now);
+
 
                     //mesa.getComanda().setAlimento(AlimentosDb.myDataset.get(alimentoAdd.));
 
                     data.putExtra(EXTRA_NEW_CONTACT,  mesa);
                     setResult(RESULT_OK, data);
+
+
                     finish();
+
+
                 }
             }
         });

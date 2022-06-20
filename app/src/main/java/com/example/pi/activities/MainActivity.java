@@ -10,6 +10,8 @@ import com.example.pi.R;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,4 +25,19 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 1000);
     }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent i = new Intent(MainActivity.this, ListaPedidosActivity.class);
+                startActivity(i);
+            }
+        }, 1000);
+
+    }
+
 }

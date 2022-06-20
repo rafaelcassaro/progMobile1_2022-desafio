@@ -32,7 +32,7 @@ public class Alimento implements Serializable {
 
     @Override
     public String toString() {
-        return  produto  +" x"+ qntd + "\n";
+        return  produto  +"    x"+ qntd + "\n";
     }
 
     public String getProduto() {

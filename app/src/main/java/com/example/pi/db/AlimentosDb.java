@@ -8,17 +8,17 @@ import java.util.List;
 public class AlimentosDb {
 
 
-
     public static List<Alimento> myDataset = new ArrayList<>();
 
     static {
-        myDataset.add(new Alimento("Prato 1", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0,11.01));
-        myDataset.add(new Alimento("Prato 2", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0,12.01));
-        myDataset.add(new Alimento("Prato 3", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0,13.01));
-        myDataset.add(new Alimento("Prato 4", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0,14.01));
-        myDataset.add(new Alimento("Prato 5", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0,15.01));
-        myDataset.add(new Alimento("Prato 6", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0,16.01));
-        myDataset.add(new Alimento("Prato 7", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0,17.01));
+        myDataset.add(new Alimento("PRATO A", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0,25.00));
+        myDataset.add(new Alimento("PRATO B", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0,30.50));
+        myDataset.add(new Alimento("PRATO C", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0,22.50));
+        myDataset.add(new Alimento("PRATO D", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0,15.01));
+        myDataset.add(new Alimento("PRATO E", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0,7.01));
+        myDataset.add(new Alimento("PRATO F", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0,9.00));
+        myDataset.add(new Alimento("PRATO G", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0,26.00));
+
 
     }
 }
