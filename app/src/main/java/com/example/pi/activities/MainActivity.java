@@ -23,12 +23,17 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(MainActivity.this, ListaPedidosActivity.class);
                 startActivity(i);
             }
-        }, 1000);
+        }, 2000);
     }
 
+   /* @Override
+    protected void onRestart() {
+        super.onRestart();
+    }*/
+
     @Override
-    protected void onResume(){
-        super.onResume();
+    protected void onRestart(){
+        super.onRestart();
 
         new Handler().postDelayed(new Runnable() {
             @Override

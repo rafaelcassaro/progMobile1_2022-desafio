@@ -87,10 +87,10 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="105dp"
+        android:layout_width="102dp"
         android:layout_height="35dp"
         android:layout_marginBottom="3dp"
-        android:text="Total:R$ "
+        android:text="Total: R$ "
         android:textColor="#090000"
         android:textSize="24sp"
         android:textStyle="bold"

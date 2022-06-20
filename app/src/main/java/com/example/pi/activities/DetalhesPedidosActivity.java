@@ -1,7 +1,9 @@
 package com.example.pi.activities;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -61,19 +63,31 @@ public class DetalhesPedidosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                for(int a = 0;  a < MesaDb.myDataset.size() ; a++){
-                    Date dateDbTeste = MesaDb.myDataset.get(a).getComanda().getMoment();
-                    long dateDbThis = Long.parseLong(sdf.format(dateDbTeste));
+                AlertDialog.Builder confirmaExclusao = new AlertDialog.Builder(DetalhesPedidosActivity.this);
+                confirmaExclusao.setTitle("Atenção!");
+                confirmaExclusao.setMessage("Deseja cancelar o pedido\nMesa " + mesa.getNumMesa()+"   Comanda "+mesa.getNumComanda());
+                confirmaExclusao.setCancelable(false);
+                confirmaExclusao.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        for(int a = 0;  a < MesaDb.myDataset.size() ; a++){
+                            Date dateDbTeste = MesaDb.myDataset.get(a).getComanda().getMoment();
+                            long dateDbThis = Long.parseLong(sdf.format(dateDbTeste));
 
-                    if( dateDbThis == dateThis){
-                        MesaDb.myDataset.remove(a);
-                        Intent i = new Intent();
-                        //Intent i = new Intent(DetalhesPedidosActivity.this, ListaPedidosActivity.class);
-                        //startActivity(i);
-                        setResult(RESULT_OK, i);
-                        finish();
+                            if( dateDbThis == dateThis){
+                                MesaDb.myDataset.remove(a);
+                                Intent i = new Intent();
+                                //Intent i = new Intent(DetalhesPedidosActivity.this, ListaPedidosActivity.class);
+                                //startActivity(i);
+                                setResult(RESULT_OK, i);
+                                finish();
+                            }
+                        }
+
                     }
-                }
+                });
+                confirmaExclusao.setNegativeButton("Não", null);
+                confirmaExclusao.create().show();
 
 
             }

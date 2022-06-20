@@ -1,10 +1,12 @@
 package com.example.pi.activities;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +18,7 @@ import com.example.pi.adapter.NovaBebidaAdapter;
 import com.example.pi.adapter.NovoCardapioAdapter;
 import com.example.pi.db.AlimentosDb;
 import com.example.pi.db.BebidaDb;
+import com.example.pi.db.MesaDb;
 import com.example.pi.models.Alimento;
 import com.example.pi.models.Comanda;
 import com.example.pi.models.Mesa;
@@ -74,6 +77,7 @@ public class NovoPedidoActivity extends AppCompatActivity {
         novo_pedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                AlertDialog.Builder confirmaInclusao = new AlertDialog.Builder(NovoPedidoActivity.this);
                 Date now = new Date(System.currentTimeMillis());
                 final String mesaAdd = novo_mesa.getText().toString();
                 final String comandaAdd = novo_comanda.getText().toString();
@@ -89,7 +93,6 @@ public class NovoPedidoActivity extends AppCompatActivity {
                     novo_comanda.setError("Preencha o campo");
                 }
                 else{
-
                     Intent data = new Intent();
                     List<Alimento> alimentosStep = new ArrayList<>();
                     //List<Alimento> alimentosStep2 = new ArrayList<>();
@@ -105,19 +108,65 @@ public class NovoPedidoActivity extends AppCompatActivity {
                     }
 
                     Comanda comanda = new Comanda("",Integer.parseInt(comandaAdd), alimentosStep);
-                    Mesa mesa = new Mesa(Integer.parseInt(mesaAdd),comanda);
+
+                    //==================================
+
+
+
+                    confirmaInclusao.setTitle("Atenção!");
+                    confirmaInclusao.setMessage("Deseja incluir o pedido \n" +"Mesa " +mesaAdd+ "    Comanda "+ comandaAdd+"\n"+  comanda.printAlimentos() );
+                    confirmaInclusao.setCancelable(false);
+                    confirmaInclusao.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+
+                            Mesa mesa = new Mesa(Integer.parseInt(mesaAdd),comanda);
+
+                            //mesa.getComanda().setNumComanda(Integer.parseInt(comandaAdd));
+                            mesa.getComanda().setMoment(now);
+
+                            data.putExtra(EXTRA_NEW_CONTACT,  mesa);
+                            setResult(RESULT_OK, data);
+                            finish();
+
+                        }
+                    });
+                    confirmaInclusao.setNegativeButton("Não", null);
+                    confirmaInclusao.create().show();
+
+
+
+                    //======================================================
+                   /* Intent data = new Intent();
+
+                    List<Alimento> alimentosStep = new ArrayList<>();
+                    //List<Alimento> alimentosStep2 = new ArrayList<>();
+                    //alimentosStep.clear();
+                    alimentosStep.addAll(AlimentosDb.myDataset);
+                    alimentosStep.addAll(BebidaDb.myDataset);
+
+                    for(int p = alimentosStep.size()-1; p >= 0; p--){
+                        //int x = alimentosStep.get(p).getQntd();
+                        if(alimentosStep.get(p).getQntd() == 0){
+                            alimentosStep.remove(p);
+                        }
+                    }
+
+                     Comanda comanda = new Comanda("",Integer.parseInt(comandaAdd), alimentosStep);
+                     Mesa mesa = new Mesa(Integer.parseInt(mesaAdd),comanda);
 
                     //mesa.getComanda().setNumComanda(Integer.parseInt(comandaAdd));
-                    mesa.getComanda().setMoment(now);
+                     mesa.getComanda().setMoment(now);
 
 
                     //mesa.getComanda().setAlimento(AlimentosDb.myDataset.get(alimentoAdd.));
 
                     data.putExtra(EXTRA_NEW_CONTACT,  mesa);
                     setResult(RESULT_OK, data);
+                */
 
-
-                    finish();
+                   // finish();
 
 
                 }
