@@ -1,4 +1,6 @@
-package com.example.pi.models;
+package com.example.pi.db;
+
+import com.example.pi.models.Mesa;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +11,7 @@ public class MesaDb {
     //public static Comanda cd = ComandaDb.comandaDataSet.get(0);
 
     static {
-        myDataset.add(new Mesa(7,ComandaDb.comandaDataSet.get(0)));
+        myDataset.add(new Mesa(7, ComandaDb.comandaDataSet.get(0)));
         myDataset.add(new Mesa(2,ComandaDb.comandaDataSet.get(1)));
         myDataset.add(new Mesa(3,ComandaDb.comandaDataSet.get(2)));
 

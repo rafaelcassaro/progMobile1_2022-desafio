@@ -48,9 +48,7 @@ public class Mesa implements Serializable {
         return comanda.getNumComanda();
     }
 
-    public List<Alimento>  getListAlimentos() {
-        return comanda.getAlimentos();
-    }
+    //public List<Alimento>  getListAlimentos() {        return comanda.getAlimentos();    }
 
     public Double getTotal() {
         return comanda.getTotal();

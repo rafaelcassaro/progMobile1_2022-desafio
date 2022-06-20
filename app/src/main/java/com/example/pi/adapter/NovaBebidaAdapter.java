@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pi.R;
 import com.example.pi.models.Alimento;
-import com.example.pi.models.BebidaDb;
+import com.example.pi.db.BebidaDb;
 
 
 public class NovaBebidaAdapter extends RecyclerView.Adapter<NovaBebidaAdapter.MyViewHolder> {

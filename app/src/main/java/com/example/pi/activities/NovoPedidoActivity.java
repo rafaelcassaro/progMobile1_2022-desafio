@@ -9,18 +9,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.pi.R;
 import com.example.pi.adapter.NovaBebidaAdapter;
 import com.example.pi.adapter.NovoCardapioAdapter;
-import com.example.pi.models.AlimentosDb;
-import com.example.pi.models.BebidaDb;
+import com.example.pi.db.BebidaDb;
 import com.example.pi.models.Comanda;
 import com.example.pi.models.Mesa;
 
-import java.io.Serializable;
+import java.util.Date;
 
 public class NovoPedidoActivity extends AppCompatActivity {
 
@@ -69,9 +67,10 @@ public class NovoPedidoActivity extends AppCompatActivity {
         novo_pedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Date now = new Date(System.currentTimeMillis());
                 final String mesaAdd = novo_mesa.getText().toString();
                 final String comandaAdd = novo_comanda.getText().toString();
-                final String alimentoAdd = add_alimento_tv.getText().toString();
+                //final String alimentoAdd = add_alimento_tv.getText().toString();
 
                 if (mesaAdd.length() == 0){
                     novo_mesa.requestFocus();
@@ -86,6 +85,8 @@ public class NovoPedidoActivity extends AppCompatActivity {
                     Comanda comanda = new Comanda("",Integer.parseInt(mesaAdd));
                     Mesa mesa = new Mesa(Integer.parseInt(mesaAdd),comanda);
                     mesa.getComanda().setNumComanda(Integer.parseInt(comandaAdd));
+                    mesa.getComanda().setMoment(now);
+
                     //mesa.getComanda().setAlimento(AlimentosDb.myDataset.get(alimentoAdd.));
 
                     data.putExtra(EXTRA_NEW_CONTACT,  mesa);

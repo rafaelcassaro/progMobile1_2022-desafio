@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pi.R;
 import com.example.pi.models.Mesa;
-import com.example.pi.models.MesaDb;
+import com.example.pi.db.MesaDb;
 
 
 public class ListaPedidosAdapter extends RecyclerView.Adapter<ListaPedidosAdapter.MyViewHolder> {
@@ -36,12 +36,12 @@ public class ListaPedidosAdapter extends RecyclerView.Adapter<ListaPedidosAdapte
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Mesa mesadb = MesaDb.myDataset.get(position);
+        //Mesa mesadb = MesaDb.myDataset.get(position);
         //String doidera = String.valueOf(PedidoDb.myDataset.get(position));
         //holder.pedido.setText(mesadb.getPedido());
 
-        holder.mesaTv.setText(String.valueOf(mesadb.getNumMesa()));
-        holder.comandaTv.setText(String.valueOf(mesadb.getNumComanda()));
+        holder.mesaTv.setText(String.valueOf(MesaDb.myDataset.get(position).getNumMesa()));
+        holder.comandaTv.setText(String.valueOf(MesaDb.myDataset.get(position).getNumComanda()));
         //holder.mesaTv.setText(String.valueOf(position+1));
 
         //holder.mesa.setText(mesadb(position+1));

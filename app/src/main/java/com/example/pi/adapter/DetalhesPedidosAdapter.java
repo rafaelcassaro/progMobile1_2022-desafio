@@ -10,10 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pi.R;
-import com.example.pi.models.Alimento;
-import com.example.pi.models.BebidaDb;
 import com.example.pi.models.Mesa;
-import com.example.pi.models.MesaDb;
+import com.example.pi.db.MesaDb;
 
 public class DetalhesPedidosAdapter extends RecyclerView.Adapter<DetalhesPedidosAdapter.MyViewHolder> {
     private MesaDb alimentosBebida = new MesaDb();

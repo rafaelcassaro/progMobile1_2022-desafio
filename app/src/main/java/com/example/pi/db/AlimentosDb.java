@@ -1,4 +1,6 @@
-package com.example.pi.models;
+package com.example.pi.db;
+
+import com.example.pi.models.Alimento;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -18,7 +18,7 @@ import android.widget.TextView;
 import com.example.pi.R;
 import com.example.pi.adapter.ListaPedidosAdapter;
 import com.example.pi.models.Mesa;
-import com.example.pi.models.MesaDb;
+import com.example.pi.db.MesaDb;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
@@ -73,7 +73,6 @@ public class ListaPedidosActivity extends AppCompatActivity {
             public void onItemClick(int position) {
                 Intent intent = new Intent(ListaPedidosActivity.this, DetalhesPedidosActivity.class);
                 intent.putExtra(EXTRA_SHOW, MesaDb.myDataset.get(position));
-
                 startActivity(intent);
             }
         });
@@ -97,10 +96,10 @@ public class ListaPedidosActivity extends AppCompatActivity {
                     nome_novo.setError("Preencha o campo");
 
                 }
-                else if(nomeNovo == "chave"){
-                    name_visu.setText(nomeSalvo);
-                    nomeSalvo = nomeNovo;
-                }
+                //else if(nomeNovo == "chave"){
+                //    name_visu.setText(nomeSalvo);
+                //    nomeSalvo = nomeNovo;
+                //}
                 else {
                     //name_visu.setText(nomeSalvo);
                     nome_novo.setError(null);
