@@ -10,8 +10,6 @@ import com.example.pi.R;
 
 public class MainActivity extends AppCompatActivity {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,11 +24,6 @@ public class MainActivity extends AppCompatActivity {
         }, 2000);
     }
 
-   /* @Override
-    protected void onRestart() {
-        super.onRestart();
-    }*/
-
     @Override
     protected void onRestart(){
         super.onRestart();
@@ -42,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         }, 1000);
-
     }
 
 }

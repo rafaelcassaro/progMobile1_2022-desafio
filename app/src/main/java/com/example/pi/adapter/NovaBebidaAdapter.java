@@ -19,13 +19,10 @@ public class NovaBebidaAdapter extends RecyclerView.Adapter<NovaBebidaAdapter.My
     private BebidaDb alimentosBebida = new BebidaDb();
     private LayoutInflater inflater;
 
-    //private NovaBebidaAdapter.OnItemClickListener listener;
 
-
-    public NovaBebidaAdapter(Context context, BebidaDb wordList/*, OnItemClickListener listener*/) {
+    public NovaBebidaAdapter(Context context, BebidaDb wordList) {
         inflater = LayoutInflater.from(context);
         this.alimentosBebida = wordList;
-        //this.listener =  listener;
     }
 
     @NonNull
@@ -64,7 +61,6 @@ public class NovaBebidaAdapter extends RecyclerView.Adapter<NovaBebidaAdapter.My
     }
 
 
-
     public class MyViewHolder extends RecyclerView.ViewHolder
     {
         public TextView bebida;
@@ -80,11 +76,5 @@ public class NovaBebidaAdapter extends RecyclerView.Adapter<NovaBebidaAdapter.My
             removeBebida = itemView.findViewById(R.id.remove_bebida_bt);
 
         }
-
-
     }
-
-    /*public interface OnItemClickListener {
-        void onItemClick(int position);
-    }*/
 }

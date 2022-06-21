@@ -18,8 +18,6 @@ public class ListaPedidosAdapter extends RecyclerView.Adapter<ListaPedidosAdapte
 
     private LayoutInflater inflater;
     private OnItemClickListener listener;
-    //View itemList;
-
 
     public ListaPedidosAdapter(Context context, OnItemClickListener listener) {
         inflater = LayoutInflater.from(context);
@@ -29,31 +27,14 @@ public class ListaPedidosAdapter extends RecyclerView.Adapter<ListaPedidosAdapte
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //itemList = inflater.inflate(R.layout.item_layout, parent, false);
         View itemList = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout,parent,false);
         return new MyViewHolder(itemList);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        //Mesa mesadb = MesaDb.myDataset.get(position);
-        //String doidera = String.valueOf(PedidoDb.myDataset.get(position));
-        //holder.pedido.setText(mesadb.getPedido());
-
         holder.mesaTv.setText(String.valueOf(MesaDb.myDataset.get(position).getNumMesa()));
         holder.comandaTv.setText(String.valueOf(MesaDb.myDataset.get(position).getNumComanda()));
-        //holder.mesaTv.setText(String.valueOf(position+1));
-
-        //holder.mesa.setText(mesadb(position+1));
-
-        /*holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(itemList.getContext(), DetalhesPedidosActivity.class);
-                itemList.getContext().startActivity(i);
-            }
-        });*/
-
     }
 
     @Override

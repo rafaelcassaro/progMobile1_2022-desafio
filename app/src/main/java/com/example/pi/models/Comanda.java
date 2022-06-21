@@ -44,24 +44,15 @@ public class Comanda implements Serializable {
         this.moment = moment;
     }
 
-    public void setAlimento(Alimento adicionar){
-        this.alimentos.add(adicionar);
-    }
 
     public Comanda() {
-        this.alimentos = new ArrayList<Alimento>();
-    }
-
-    public Comanda(String nomeGarcom, Integer numComanda) {
-        this.nomeGarcom = nomeGarcom;
-        this.numComanda = numComanda;
-        this.alimentos = new ArrayList<Alimento>();
+        this.alimentos = new ArrayList<>();
     }
 
     public Comanda(String nomeGarcom, Integer numComanda, List<Alimento> alimentos) {
         this.nomeGarcom = nomeGarcom;
         this.numComanda = numComanda;
-        this.alimentos = new ArrayList<Alimento>();
+        this.alimentos = new ArrayList<>();
         this.alimentos = alimentos;
     }
 
@@ -69,10 +60,9 @@ public class Comanda implements Serializable {
         this.moment = moment;
         this.nomeGarcom = nomeGarcom;
         this.numComanda = numComanda;
-        this.alimentos = new ArrayList<Alimento>();
+        this.alimentos = new ArrayList<>();
         this.alimentos = alimentos;
     }
-
 
 
     public Double getTotal() {

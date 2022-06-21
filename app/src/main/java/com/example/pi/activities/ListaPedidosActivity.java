@@ -31,9 +31,7 @@ import java.util.List;
 public class ListaPedidosActivity extends AppCompatActivity {
 
     public static final String EXTRA_SHOW = "EXTRA_SHOW";
-    private static final int ADD_CONTACT_REQUEST = 1;
     private RecyclerView recyclerView;
-    //private ListaPedidosAdapter adapter;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private TextView nome_novo;
@@ -79,15 +77,11 @@ public class ListaPedidosActivity extends AppCompatActivity {
 
         nome_novo = findViewById(R.id.new_name_tv);
         name_visu = findViewById(R.id.name_tv);
-        //String dsdes = "hello";
-        //name_visu.setText(nomeSalvo);
 
         recyclerView = findViewById(R.id.main_recyclerView);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
-
 
         adapter = new ListaPedidosAdapter(this, new ListaPedidosAdapter.OnItemClickListener() {
             @Override
@@ -98,15 +92,12 @@ public class ListaPedidosActivity extends AppCompatActivity {
             }
         });
 
-
-
         FloatingActionButton add_pedido = findViewById(R.id.add_pedido);
         add_pedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final String nomeNovo = nome_novo.getText().toString();
                 final String nomeN = name_visu.getText().toString();
-                //nomeSalvo = nomeNovo;
 
                 if(nomeN.length() == 0){
                     nome_novo.setError(null);
@@ -115,30 +106,18 @@ public class ListaPedidosActivity extends AppCompatActivity {
 
                     nome_novo.requestFocus();
                     nome_novo.setError("Preencha o campo");
-
                 }
-                //else if(nomeNovo == "chave"){
-                //    name_visu.setText(nomeSalvo);
-                //    nomeSalvo = nomeNovo;
-                //}
                 else {
 
-                    //name_visu.setText(nomeSalvo);
                     nome_novo.setError(null);
                     nome_novo.setText(null);
-
                     Intent i = new Intent(ListaPedidosActivity.this, NovoPedidoActivity.class);
                     mStartForResult.launch(i);
-
-                    //startActivity(i);
                 }
             }
         });
 
         recyclerView.setAdapter(adapter);
-
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-
     }
-
 }

@@ -18,12 +18,6 @@ public class Alimento implements Serializable {
         this.valor = valor;
     }
 
-    public Alimento(String produto, String detalhe, Integer qntd) {
-        this.produto = produto;
-        this.detalhe = detalhe;
-        this.qntd = qntd;
-    }
-
     public Alimento(String produto, Integer qntd, Double valor) {
         this.produto = produto;
         this.qntd = qntd;

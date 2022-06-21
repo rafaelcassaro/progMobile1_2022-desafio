@@ -20,7 +20,6 @@ import java.util.Date;
 
 public class DetalhesPedidosActivity extends AppCompatActivity {
 
-    public static final String EXTRA_NEW_CONTACTT = "EXTRA_NEW_CONTACTT";
     private TextView alimentosTv;
     private TextView nomeTv;
     private TextView mesaTv;
@@ -52,7 +51,6 @@ public class DetalhesPedidosActivity extends AppCompatActivity {
         nomeTv.setText(mesa.getNomeGarcom());
         comandaTv.setText(String.valueOf(mesa.getNumComanda()));
         mesaTv.setText(String.valueOf(mesa.getNumMesa()));
-        //totalTv.setText(String.valueOf(mesa.getTotal()));
         totalTv.setText(deci.format(mesa.getTotal()));
 
 
@@ -77,8 +75,6 @@ public class DetalhesPedidosActivity extends AppCompatActivity {
                             if( dateDbThis == dateThis){
                                 MesaDb.myDataset.remove(a);
                                 Intent i = new Intent();
-                                //Intent i = new Intent(DetalhesPedidosActivity.this, ListaPedidosActivity.class);
-                                //startActivity(i);
                                 setResult(RESULT_OK, i);
                                 finish();
                             }
@@ -86,10 +82,9 @@ public class DetalhesPedidosActivity extends AppCompatActivity {
 
                     }
                 });
+
                 confirmaExclusao.setNegativeButton("Não", null);
                 confirmaExclusao.create().show();
-
-
             }
         });
 

@@ -7,7 +7,6 @@ import java.util.List;
 
 public class AlimentosDb {
 
-
     public static List<Alimento> myDataset = new ArrayList<>();
 
     static {
@@ -18,7 +17,5 @@ public class AlimentosDb {
         myDataset.add(new Alimento("PRATO E", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0,7.01));
         myDataset.add(new Alimento("PRATO F", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0,9.00));
         myDataset.add(new Alimento("PRATO G", "xxxxxxxxxx xxxxxxx xxxxxxxxx", 0,26.00));
-
-
     }
 }

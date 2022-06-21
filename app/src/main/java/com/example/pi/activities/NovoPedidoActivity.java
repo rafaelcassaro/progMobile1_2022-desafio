@@ -31,25 +31,18 @@ public class NovoPedidoActivity extends AppCompatActivity {
 
     public static final String EXTRA_NEW_CONTACT = "EXTRA_NEW_CONTACT";
     private String valorStr = "";
-    int qntdInt = 0;
-    private RecyclerView recyclerView;
-    private NovoCardapioAdapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
-    //-----------------
-
     private Button novo_pedido;
     private TextView novo_mesa;
     private TextView novo_comanda;
     private TextView add_alimento_tv;
     private TextView add_bebida_tv;
 
-
-
-
-    //----------------
-    RecyclerView recyclerViewB;
-    NovaBebidaAdapter adapterB;
-    RecyclerView.LayoutManager layoutManagerB;
+    private RecyclerView recyclerView;
+    private NovoCardapioAdapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private RecyclerView recyclerViewB;
+    private NovaBebidaAdapter adapterB;
+    private RecyclerView.LayoutManager layoutManagerB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +52,6 @@ public class NovoPedidoActivity extends AppCompatActivity {
         novo_pedido = findViewById(R.id.novo_pedido_bt);
         novo_mesa = findViewById(R.id.novo_mesa_tv);
         novo_comanda = findViewById(R.id.novo_comanda_tv);
-
         add_alimento_tv = findViewById(R.id.qnt_alimento_tv);
         add_bebida_tv = findViewById(R.id.qnt_bebida_tv);
 
@@ -71,9 +63,6 @@ public class NovoPedidoActivity extends AppCompatActivity {
         recyclerViewB.setHasFixedSize(true);
         layoutManagerB = new LinearLayoutManager(this);
 
-
-
-
         novo_pedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,8 +70,6 @@ public class NovoPedidoActivity extends AppCompatActivity {
                 Date now = new Date(System.currentTimeMillis());
                 final String mesaAdd = novo_mesa.getText().toString();
                 final String comandaAdd = novo_comanda.getText().toString();
-               // final String alimentoAdd = add_alimento_tv.getText().toString();
-               // final String alimentoAdd = add_alimento_tv.toString()
 
                 if (mesaAdd.length() == 0){
                     novo_mesa.requestFocus();
@@ -95,23 +82,16 @@ public class NovoPedidoActivity extends AppCompatActivity {
                 else{
                     Intent data = new Intent();
                     List<Alimento> alimentosStep = new ArrayList<>();
-                    //List<Alimento> alimentosStep2 = new ArrayList<>();
-                    //alimentosStep.clear();
                     alimentosStep.addAll(AlimentosDb.myDataset);
                     alimentosStep.addAll(BebidaDb.myDataset);
 
                     for(int p = alimentosStep.size()-1; p >= 0; p--){
-                        //int x = alimentosStep.get(p).getQntd();
                         if(alimentosStep.get(p).getQntd() == 0){
                             alimentosStep.remove(p);
                         }
                     }
 
                     Comanda comanda = new Comanda("",Integer.parseInt(comandaAdd), alimentosStep);
-
-                    //==================================
-
-
 
                     confirmaInclusao.setTitle("Atenção!");
                     confirmaInclusao.setMessage("Deseja incluir o pedido \n" +"Mesa " +mesaAdd+ "    Comanda "+ comandaAdd+"\n"+  comanda.printAlimentos() );
@@ -120,79 +100,25 @@ public class NovoPedidoActivity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
-
                             Mesa mesa = new Mesa(Integer.parseInt(mesaAdd),comanda);
-
-                            //mesa.getComanda().setNumComanda(Integer.parseInt(comandaAdd));
                             mesa.getComanda().setMoment(now);
 
                             data.putExtra(EXTRA_NEW_CONTACT,  mesa);
                             setResult(RESULT_OK, data);
                             finish();
-
                         }
                     });
                     confirmaInclusao.setNegativeButton("Não", null);
                     confirmaInclusao.create().show();
-
-
-
-                    //======================================================
-                   /* Intent data = new Intent();
-
-                    List<Alimento> alimentosStep = new ArrayList<>();
-                    //List<Alimento> alimentosStep2 = new ArrayList<>();
-                    //alimentosStep.clear();
-                    alimentosStep.addAll(AlimentosDb.myDataset);
-                    alimentosStep.addAll(BebidaDb.myDataset);
-
-                    for(int p = alimentosStep.size()-1; p >= 0; p--){
-                        //int x = alimentosStep.get(p).getQntd();
-                        if(alimentosStep.get(p).getQntd() == 0){
-                            alimentosStep.remove(p);
-                        }
-                    }
-
-                     Comanda comanda = new Comanda("",Integer.parseInt(comandaAdd), alimentosStep);
-                     Mesa mesa = new Mesa(Integer.parseInt(mesaAdd),comanda);
-
-                    //mesa.getComanda().setNumComanda(Integer.parseInt(comandaAdd));
-                     mesa.getComanda().setMoment(now);
-
-
-                    //mesa.getComanda().setAlimento(AlimentosDb.myDataset.get(alimentoAdd.));
-
-                    data.putExtra(EXTRA_NEW_CONTACT,  mesa);
-                    setResult(RESULT_OK, data);
-                */
-
-                   // finish();
-
 
                 }
             }
         });
 
 
-        adapter = new NovoCardapioAdapter(this, new NovoCardapioAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                //Cardapio cardapio = CardapioDb.myDataset.get(position);
-                //Toast.makeText(NovoPedidoActivity.this, cardapio.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
+        adapter = new NovoCardapioAdapter(this,new AlimentosDb());
         //-------------
-
         adapterB = new NovaBebidaAdapter(this, new BebidaDb());
-
-        /*adapterB = new NovaBebidaAdapter(this, new NovaBebidaAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                Cardapio bb = CardapioDb.myDataset.get(position);
-                Toast.makeText(NovoPedidoActivity.this, bb.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });*/
-
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
