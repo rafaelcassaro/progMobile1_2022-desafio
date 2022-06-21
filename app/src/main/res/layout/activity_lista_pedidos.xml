@@ -63,7 +63,7 @@
         android:layout_height="39dp"
         android:layout_marginTop="10dp"
         android:ems="10"
-        android:hint="Digite o cpf"
+        android:hint="Digite o nome"
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textColorHint="#4F7C75"

@@ -99,18 +99,22 @@ public class ListaPedidosActivity extends AppCompatActivity {
                 final String nomeNovo = nome_novo.getText().toString();
                 final String nomeN = name_visu.getText().toString();
 
-                if(nomeN.length() == 0){
-                    nome_novo.setError(null);
+                if(nomeNovo.length() == 0){
+                    if(nomeN.length() == 0){
+                        nome_novo.setError(null);
+                        nomeSalvo = nomeNovo;
+                        name_visu.setText(nomeSalvo);
+                        nome_novo.requestFocus();
+                        nome_novo.setError("Preencha o campo");
+                    }
+                    else {
+                        Intent i = new Intent(ListaPedidosActivity.this, NovoPedidoActivity.class);
+                        mStartForResult.launch(i);
+                    }
+                }
+                else{
                     nomeSalvo = nomeNovo;
                     name_visu.setText(nomeSalvo);
-
-                    nome_novo.requestFocus();
-                    nome_novo.setError("Preencha o campo");
-                }
-                else {
-
-                    nome_novo.setError(null);
-                    nome_novo.setText(null);
                     Intent i = new Intent(ListaPedidosActivity.this, NovoPedidoActivity.class);
                     mStartForResult.launch(i);
                 }
