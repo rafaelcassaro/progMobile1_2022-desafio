@@ -26,12 +26,11 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="31dp"
+        android:layout_marginStart="50dp"
         android:text="Mesa:"
         android:textColor="#050000"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/mesa_detalhe_tv"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -39,37 +38,36 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="31dp"
+        android:layout_marginStart="5dp"
         android:text="Comanda:"
         android:textColor="#050000"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/comanda_detalhe_tv"
+        app:layout_constraintStart_toEndOf="@+id/mesa_detalhe_tv"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/mesa_detalhe_tv"
         android:layout_width="48dp"
         android:layout_height="31dp"
-        android:layout_marginEnd="5dp"
         android:ems="10"
         android:inputType="number"
         android:textAlignment="center"
         android:textColor="#051D93"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView7"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/comanda_detalhe_tv"
-        android:layout_width="40dp"
+        android:layout_width="48dp"
         android:layout_height="31dp"
-        android:layout_marginEnd="60dp"
         android:ems="10"
         android:inputType="number"
         android:textAlignment="center"
         android:textColor="#051D93"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
@@ -172,6 +170,7 @@
         android:id="@+id/imageView2"
         android:layout_width="35dp"
         android:layout_height="35dp"
+        android:tint="#000000"
         app:layout_constraintBottom_toTopOf="@+id/prods_detalhe_tv"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_baseline_access_time_24" />

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5sp"
+    android:layout_margin="1dp"
     android:background="#DFE4F8"
     android:orientation="horizontal"
     android:padding="15dp">
@@ -13,7 +13,7 @@
         android:id="@+id/novo_Mesa"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="40dp"
         android:layout_weight="0"
         android:gravity="start"
         android:text="@string/mesa"
@@ -23,11 +23,12 @@
 
     <TextView
         android:id="@+id/mesa_num"
-        android:layout_width="80dp"
+        android:layout_width="45dp"
         android:layout_height="30dp"
         android:layout_marginStart="0dp"
         android:layout_weight="0"
         android:gravity="start"
+        android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -50,6 +51,7 @@
         android:layout_marginStart="0dp"
         android:layout_weight="0"
         android:gravity="start"
+        android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold" />
 

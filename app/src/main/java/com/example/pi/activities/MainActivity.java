@@ -20,10 +20,11 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 Intent i = new Intent(MainActivity.this, ListaPedidosActivity.class);
                 startActivity(i);
+                finish();
             }
         }, 2000);
     }
-
+/*
     @Override
     protected void onRestart(){
         super.onRestart();
@@ -35,6 +36,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         }, 1000);
-    }
+    }*/
 
 }
